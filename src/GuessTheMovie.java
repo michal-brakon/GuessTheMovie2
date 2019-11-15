@@ -5,7 +5,7 @@ public class GuessTheMovie {
 
     public static void main(String[] args) {
         Game fg = new Game();
-        System.out.println(fg);
+
 
     }
 }

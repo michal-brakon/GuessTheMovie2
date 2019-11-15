@@ -2,28 +2,31 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 
 public class Game {
-    public static String randomLine() throws IOException {
+    public  void randomLine() throws IOException {
         String result = null;
         Random random = new Random();
         File f = new File("movies.txt");
-        int n = 0;
-        for (Scanner sc = new Scanner(f);
-             sc.hasNext(); ) {
-            n++;
-            String line = sc.nextLine();
-            if (random.nextInt(n) < n) {
-                result = line; }
+        Scanner sc = new Scanner(f);
+        ArrayList<String> list = new ArrayList<String>();
+        while (sc.hasNext()){
+            list.add(sc.next());
         }
-        return result;
+        sc.close();
+        int size = list.size();
+        for (int i =0; i < size; i++);
+
+        int ran = (int) (Math.random() * list.size()) +1;
+
+        System.out.println(list.get(ran));
+
     }
-    public static String underscoreAll () throws IOException {
-        String st = randomLine().replaceAll("[a-zA-Z]", "_");
-        return st;
+
     }
 
 
-}
