@@ -2,31 +2,25 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Game {
-    // text file changed to array
-    public String[] readLines(String filename) throws IOException {
-        FileReader fileReader = new FileReader(filename);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        List<String> lines = new ArrayList<String>();
-        String line = null;
+    public Game(File file) {
+    }
 
-        while ((line = bufferedReader.readLine()) != null) {
-            lines.add(line);
+    public static String randomLIne(File f) throws IOException {
+        String result = null;
+        Random random = new Random();
+        int n = 0;
+        for (Scanner sc = new Scanner(f); sc.hasNext(); ) {
+            n++;
+            String line = sc.nextLine();
+            if (random.nextInt(n) < n) {
+                result = line; }
+
         }
-        bufferedReader.close();
-        return lines.toArray(new String[lines.size()]);
-    }
-
-
-
-        //gives me random number from file
-
+        return result;
 
     }
-
-
+}
