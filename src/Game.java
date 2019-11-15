@@ -1,38 +1,33 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Game {
+    // text file changed to array
+    public String[] readLines(String filename) throws IOException {
+        FileReader fileReader = new FileReader(filename);
 
-    // obiekt to bedzie gra
-    // boolean rezultatGry; true - zwyciestwo, false przegrana
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        List<String> lines = new ArrayList<String>();
+        String line = null;
 
-
-     void givingTitle() throws Exception { // nowa metoda, która zwraca pojedynczy String z pliku
-
-        int titleNumber;
-        File file = new File("movies.txt");
-        Scanner scanner = new Scanner(file);{
-            int i = 0;
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                i++;
-                int random = (int) (Math.random() * i + 1);
-                String title = line.valueOf(random);
-
-                System.out.println("jajko");
+        while ((line = bufferedReader.readLine()) != null) {
+            lines.add(line);
+        }
+        bufferedReader.close();
+        return lines.toArray(new String[lines.size()]);
+    }
 
 
 
-                // to jest nie potrzebne
+        //gives me random number from file
 
-                //tu pwostanie druga czesc metody, ktora zamieni tytył na ______
-            }
 
-            }
-     }
-
-}
-
+    }
 
 
