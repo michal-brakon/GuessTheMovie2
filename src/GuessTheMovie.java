@@ -11,7 +11,7 @@ public class GuessTheMovie {
         try {
             String[] lines = rf.readLines(filename);
             for (String line : lines) {
-                System.out.println(lines [1]);
+                System.out.println(lines [11]);
             }
         } catch (IOException e) {
             System.out.println("Error");

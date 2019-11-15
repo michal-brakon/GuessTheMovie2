@@ -11,7 +11,6 @@ public class Game {
     // text file changed to array
     public String[] readLines(String filename) throws IOException {
         FileReader fileReader = new FileReader(filename);
-
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         List<String> lines = new ArrayList<String>();
         String line = null;
