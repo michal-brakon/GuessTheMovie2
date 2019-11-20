@@ -6,6 +6,8 @@ public class GuessTheMovie {
     public static void main(String[] args) {
         Game2 fg = new Game2();
 
+        fg.userInput();
+
 
 
     }
