@@ -5,10 +5,7 @@ import java.util.Scanner;
 
 public class Game2 {
 
-    ArrayList<String> listOfMovies = new ArrayList<>();
-
-    {
-
+    ArrayList<String> listOfMovies = new ArrayList<>(); {
         try (Scanner s = new Scanner(new File("movies.txt"))) {
             while (s.hasNext()) {
                 listOfMovies.add(s.nextLine());
@@ -17,10 +14,9 @@ public class Game2 {
             e.printStackTrace();
         }
         int size = listOfMovies.size();
-        int random = (int) (Math.random() * size + 1);
-        System.out.println(listOfMovies.get(random));
-
-        // random number
+        int random = (int) (Math.random() * size);
+        System.out.println(listOfMovies.get(random).replaceAll("[a-zA-Z]", "_"));
+                // random number
 
 
     }
