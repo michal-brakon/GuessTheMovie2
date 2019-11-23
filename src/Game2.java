@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game2 {
@@ -28,16 +29,24 @@ public class Game2 {
 
     void userInput() {
         String s = password();
-            Scanner user = new Scanner(System.in);
-        System.out.println("Your title to guess is: " + s.replaceAll("[a-zA-Z]", "_"));
+        int pasSize = password().length();
+           String sp = password().replaceAll("\\S", "_");
+           Scanner user = new Scanner(System.in);
+        System.out.println("Your title to guess is: " + sp);
             System.out.println("Select single letter:");
             String singleChar = user.next();
-            if (s.contains(singleChar)) {
+                   if (s.contains(singleChar)) {
+                       char masked [] =sp.toCharArray();
+                       int maskedsize = masked.length;
+
+                           int charInPass = s.indexOf(singleChar);
+                       masked[charInPass] = singleChar.charAt(0);
+                       sp = new String(masked);
+
+
               System.out.println("correct");
-
-
               //  String correctGuess = singleChar.indexOf(int alphabet);
-                System.out.println("Your title to guess is: " + s.replaceAll("[a-zA-Z]", "_"));
+                System.out.println("Your title to guess is: " + sp);
 
             }
             else {
