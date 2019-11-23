@@ -30,27 +30,43 @@ public class Game2 {
     void userInput() {
         String s = password();
         int pasSize = password().length();
-           String sp = password().replaceAll("\\S", "_");
-           Scanner user = new Scanner(System.in);
+        String sp = password().replaceAll("\\S", "_");
+        Scanner user = new Scanner(System.in);
+        int points = 10;
+
         System.out.println("Your title to guess is: " + sp);
+        System.out.println("You have: " + points +" points");
+        System.out.println("For every wrong guess is minus 1 point. When You reach 0 points, You lose.");
+
+
+        while (points > 0) {
             System.out.println("Select single letter:");
             String singleChar = user.next();
-                   if (s.contains(singleChar)) {
-                       char masked [] =sp.toCharArray();
-                       int maskedsize = masked.length;
+            if (s.contains(singleChar)) {
+                    char masked[] = sp.toCharArray();
+                    int charInPass = s.indexOf(singleChar);
+                    masked[charInPass] = singleChar.charAt(0);
+                    sp = new String(masked);
+                    System.out.println("correct");
+                    //  String correctGuess = singleChar.indexOf(int alphabet);
+                    System.out.println("Your title to guess is: " + sp);
 
-                           int charInPass = s.indexOf(singleChar);
-                       masked[charInPass] = singleChar.charAt(0);
-                       sp = new String(masked);
-
-
-              System.out.println("correct");
-              //  String correctGuess = singleChar.indexOf(int alphabet);
+                    if (points == 0){
+                        System.out.println("You lost!"); }
+                    if (sp.contains("^_")) {
+                        System.out.println("You win");
+                        break;
+                }
+                System.out.println("Number of points is: " + points);
+                } else {
+                    System.out.println("Wrong letter");
                 System.out.println("Your title to guess is: " + sp);
+                points--;
+                if (points == 0)
+                    System.out.println("You lost!");
+                System.out.println("Number of points is: " + points);
 
-            }
-            else {
-                System.out.println("false");
+                }
             }
         }
 
